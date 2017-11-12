@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		div {
+			background-color:#0000FF;
+			height:50px; line-height:50px;
+			color:#fff; font-size:20px; text-align: center;		
+		}
+	</style>
+	
+</head>
+<body>
+	<div onclick="openScanner();">
+		Hello APICloud!
+	</div>
+
+</body>
+
+<script>
+	onload = function(){
+	};
+	
+	apiready = function(){
+	
+	};
+	
+	function openScanner(){
+	
+		alert('in openScanner');
+		api.confirm({
+			'title':'APICloud',
+			'msg': ' do you want to use canner?',
+			'buttons':['open','cancel']
+		}, function(ret, err){
+			if(ret.buttonIndex == 1){
+				var scanner = api.require('scanner');
+				scanner.open();
+			}else{
+			//nothing
+			}
+		});
+	
+	}
+	
+	
+
+</script>
+</html>
